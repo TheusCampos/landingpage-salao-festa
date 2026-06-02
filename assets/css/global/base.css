@@ -1,0 +1,122 @@
+/* ========================================
+   Base - Estilos Globais e Tipografia
+   ======================================== */
+
+body {
+  font-family: var(--font-montserrat);
+  color: var(--charcoal);
+  background-color: var(--soft-gray);
+  line-height: 1.6;
+  font-size: var(--fs-base);
+  font-weight: 400;
+}
+
+/* === Fontes Customizadas === */
+.font-cormorant {
+  font-family: var(--font-cormorant);
+}
+
+.font-montserrat {
+  font-family: var(--font-montserrat);
+}
+
+.font-dancing {
+  font-family: var(--font-dancing);
+}
+
+/* === Hierarquia Tipográfica === */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: var(--fs-5xl);
+}
+
+h2 {
+  font-size: var(--fs-4xl);
+}
+
+h3 {
+  font-size: var(--fs-2xl);
+}
+
+h4 {
+  font-size: var(--fs-xl);
+}
+
+p {
+  line-height: 1.7;
+}
+
+/* === Seleção de Texto === */
+::selection {
+  background-color: var(--primary-gray);
+  color: var(--warm-white);
+}
+
+/* === Foco Acessível === */
+*:focus-visible {
+  outline: 2px solid var(--primary-gray);
+  outline-offset: 2px;
+}
+
+/* === Scrollbar Customizada === */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-gradient);
+  border-radius: var(--border-radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    135deg,
+    var(--secondary-gray),
+    var(--dark-gray)
+  );
+}
+
+/* === Modo de Alto Contraste (Acessibilidade) === */
+@media (prefers-contrast: high) {
+  .service-card,
+  .testimonial-card {
+    border: 2px solid currentColor;
+  }
+}
+
+/* === Redução de Movimento (Acessibilidade) === */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* === Print Styles === */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}

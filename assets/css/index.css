@@ -1,0 +1,22 @@
+/* ========================================
+   Mahalo Fest - CSS Index
+   Importa todos os módulos do Design System
+   ======================================== */
+
+/* === Design System - Variáveis === */
+@import url('./variables.css');
+
+/* === Global === */
+@import url('./global/reset.css');
+@import url('./global/base.css');
+@import url('./global/utilities.css');
+
+/* === Sections - Index Page === */
+@import url('./pages/index/navigation-section.css');
+@import url('./pages/index/hero-section.css');
+@import url('./pages/index/services-section.css');
+@import url('./pages/index/about-section.css');
+@import url('./pages/index/gallery-section.css');
+@import url('./pages/index/location-section.css');
+@import url('./pages/index/testimonials-section.css');
+@import url('./pages/index/contact-section.css');

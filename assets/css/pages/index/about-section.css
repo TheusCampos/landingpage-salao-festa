@@ -1,0 +1,229 @@
+/* ========================================
+   About Section - Sobre / Nossa História
+   ======================================== */
+
+.about {
+  padding: var(--space-3xl) 0;
+  background: linear-gradient(135deg, var(--light-gray) 0%, var(--light-cream) 100%);
+}
+
+.about__container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+@media (min-width: 640px) {
+  .about__container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about__container {
+    padding: 0 2rem;
+  }
+}
+
+.about__header {
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+}
+
+.about__greeting {
+  font-family: var(--font-dancing);
+  font-size: clamp(1.25rem, 3vw, 1.875rem);
+  color: var(--primary-gray);
+  margin-bottom: var(--space-md);
+  display: block;
+}
+
+.about__title {
+  font-family: var(--font-cormorant);
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--charcoal);
+  margin-bottom: var(--space-md);
+}
+
+.about__divider {
+  width: 4rem;
+  height: 4px;
+  background: var(--primary-gray);
+  margin: 0 auto var(--space-lg);
+}
+
+.about__lead {
+  font-size: var(--fs-xl);
+  color: #4b5563;
+  max-width: 64rem;
+  margin: 0 auto;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* === Estatísticas === */
+.about__stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-3xl);
+}
+
+@media (min-width: 768px) {
+  .about__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .about__stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stat-card {
+  text-align: center;
+}
+
+.stat-card__icon {
+  width: 5rem;
+  height: 5rem;
+  background: var(--gray-gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-md);
+  color: var(--warm-white);
+  font-size: var(--fs-2xl);
+}
+
+.stat-card__number {
+  font-family: var(--font-cormorant);
+  font-weight: 700;
+  font-size: var(--fs-4xl);
+  color: var(--primary-gray);
+  margin-bottom: var(--space-sm);
+}
+
+.stat-card__label {
+  color: #4b5563;
+  font-weight: 500;
+}
+
+/* === Conteúdo Principal === */
+.about__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .about__content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.about__text h3 {
+  font-family: var(--font-cormorant);
+  font-weight: 700;
+  font-size: var(--fs-3xl);
+  color: var(--charcoal);
+  margin-bottom: var(--space-lg);
+}
+
+.about__text p {
+  color: #4b5563;
+  line-height: 1.7;
+  margin-bottom: var(--space-lg);
+}
+
+.about__metrics {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.about__metric {
+  text-align: center;
+}
+
+.about__metric-value {
+  font-family: var(--font-cormorant);
+  font-weight: 700;
+  font-size: var(--fs-2xl);
+  color: var(--primary-gray);
+}
+
+.about__metric-label {
+  font-size: var(--fs-sm);
+  color: #4b5563;
+}
+
+/* === Imagem Decorativa === */
+.about__image {
+  position: relative;
+}
+
+.about__image-frame {
+  width: 100%;
+  height: 24rem;
+  background: var(--gray-gradient);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--warm-white);
+  box-shadow: var(--shadow-xl);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  position: relative;
+}
+
+.about__image-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(31, 41, 55, 0.3), rgba(75, 85, 99, 0.2));
+  z-index: 1;
+}
+
+.about__image-frame > * {
+  position: relative;
+  z-index: 2;
+}
+
+.about__image-frame i {
+  font-size: 4rem;
+  opacity: 0.8;
+  margin-bottom: var(--space-md);
+}
+
+.about__image-frame p {
+  font-family: var(--font-cormorant);
+  font-size: var(--fs-xl);
+}
+
+.about__image-badge {
+  position: absolute;
+  bottom: -1.5rem;
+  right: 0;
+  width: 6rem;
+  height: 6rem;
+  background: var(--primary-gray);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--warm-white);
+}
+
+@media (min-width: 768px) {
+  .about__image-badge {
+    right: -1.5rem;
+  }
+}

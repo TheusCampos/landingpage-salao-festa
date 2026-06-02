@@ -5,554 +5,406 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mahalo Fest - Salão de Festas Premium</title>
     <meta name="description" content="O mais elegante salão de festas da cidade. Transforme seus momentos especiais em memórias inesquecíveis.">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicons/favicon.svg">
+
+    <!-- Preconnect - Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
+
+    <!-- Tailwind CSS (utilitários apenas) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom CSS - Arquitetura Modular -->
+    <link rel="stylesheet" href="assets/css/index.css">
 </head>
-<body class="font-montserrat text-gray-800 overflow-x-hidden">
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex-shrink-0">
-                    <h1 class="text-2xl font-cormorant font-bold" style="color: var(--primary-gray);">Mahalo Fest</h1>
+<body>
+    <!-- ============================================
+         NAVIGATION
+         ============================================ -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Navegação principal">
+        <div class="navbar__container">
+            <div class="navbar__inner">
+                <div class="navbar__brand">
+                    <h1 class="navbar__logo">Mahalo Fest</h1>
                 </div>
-                
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#home" class="nav-link text-gray-700 transition-colors duration-300" style="--hover-color: var(--primary-gray);">Início</a>
-                        <a href="#about" class="nav-link text-gray-700 transition-colors duration-300" style="--hover-color: var(--primary-gray);">Sobre</a>
-                        <a href="#services" class="nav-link text-gray-700 transition-colors duration-300" style="--hover-color: var(--primary-gray);">Serviços</a>
-                        <a href="#gallery" class="nav-link text-gray-700 transition-colors duration-300" style="--hover-color: var(--primary-gray);">Galeria</a>
-                        <a href="#testimonials" class="nav-link text-gray-700 transition-colors duration-300" style="--hover-color: var(--primary-gray);">Depoimentos</a>
-                        <a href="#contact" class="nav-link text-gray-700 transition-colors duration-300" style="--hover-color: var(--primary-gray);">Contato</a>
-                    </div>
+
+                <div class="navbar__menu">
+                    <a href="#home" class="nav-link">Início</a>
+                    <a href="#about" class="nav-link">Sobre</a>
+                    <a href="#services" class="nav-link">Serviços</a>
+                    <a href="#gallery" class="nav-link">Galeria</a>
+                    <a href="#testimonials" class="nav-link">Depoimentos</a>
+                    <a href="#contact" class="nav-link">Contato</a>
                 </div>
-                
-                <div class="md:hidden">
-                    <button type="button" class="mobile-menu-button text-gray-700 hover:text-purple-600 focus:outline-none">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
+
+                <button type="button" class="navbar__toggle" aria-label="Abrir menu" aria-expanded="false">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
             </div>
         </div>
-        
+
         <!-- Mobile menu -->
-        <div class="md:hidden mobile-menu hidden fixed inset-x-0 top-16 w-full">
-            <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-3 space-y-1 bg-white shadow-lg text-center">
-                <a href="#home" class="block w-full px-4 py-3 text-gray-700 hover:text-purple-600">Início</a>
-                <a href="#about" class="block w-full px-4 py-3 text-gray-700 hover:text-purple-600">Sobre</a>
-                <a href="#services" class="block w-full px-4 py-3 text-gray-700 hover:text-purple-600">Serviços</a>
-                <a href="#gallery" class="block w-full px-4 py-3 text-gray-700 hover:text-purple-600">Galeria</a>
-                <a href="#testimonials" class="block w-full px-4 py-3 text-gray-700 hover:text-purple-600">Depoimentos</a>
-                <a href="#contact" class="block w-full px-4 py-3 text-gray-700 hover:text-purple-600">Contato</a>
-            </div>
+        <div class="mobile-menu mobile-menu--hidden" id="mobile-menu">
+            <a href="#home" class="mobile-menu__link">Início</a>
+            <a href="#about" class="mobile-menu__link">Sobre</a>
+            <a href="#services" class="mobile-menu__link">Serviços</a>
+            <a href="#gallery" class="mobile-menu__link">Galeria</a>
+            <a href="#testimonials" class="mobile-menu__link">Depoimentos</a>
+            <a href="#contact" class="mobile-menu__link">Contato</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="relative min-h-screen flex items-center justify-center" style="background: linear-gradient(135deg, var(--charcoal) 0%, var(--dark-gray) 50%, var(--accent-gray) 100%);">
-        <div class="absolute inset-0 bg-black/30"></div>
-        <div class="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8">
-            <div class="mb-4" data-aos="fade-up" data-aos-duration="800">
-                <span class="font-dancing text-3xl md:text-4xl" style="color: var(--primary-gray);">Bem-vindos ao</span>
-            </div>
-            <h1 class="text-6xl md:text-8xl font-cormorant font-bold mb-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                Mahalo <span class="font-dancing" style="color: var(--primary-gray);">Fest</span>
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section id="home" class="hero" aria-label="Apresentação do salão" style="background-image: linear-gradient(135deg, rgba(31, 41, 55, 0.75), rgba(75, 85, 99, 0.65)), url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1920&q=80&auto=format&fit=crop');">
+        <div class="hero__overlay"></div>
+
+        <div class="hero__content">
+            <span class="hero__greeting" data-aos="fade-up" data-aos-duration="800">Bem-vindos ao</span>
+            <h1 class="hero__title" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                Mahalo <span class="hero__title-accent">Fest</span>
             </h1>
-            <div class="w-24 h-1 mx-auto mb-8" style="background: var(--primary-gray);" data-aos="fade-up" data-aos-delay="400"></div>
-            <p class="text-xl md:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed font-light" data-aos="fade-up" data-aos-delay="600">
+            <div class="hero__divider" data-aos="fade-up" data-aos-delay="400"></div>
+            <p class="hero__subtitle" data-aos="fade-up" data-aos-delay="600">
                 Onde cada celebração se torna uma obra de arte e cada momento especial ganha vida com elegância incomparável
             </p>
-            <div class="space-y-4 sm:space-y-0 sm:space-x-6 sm:flex sm:justify-center" data-aos="fade-up" data-aos-delay="800">
-                <a href="#contact" class="inline-block px-10 py-4 rounded-none font-semibold text-lg transform hover:scale-105 transition-all duration-300 shadow-lg" style="background: linear-gradient(45deg, var(--primary-gray), var(--secondary-gray)); color: var(--charcoal);">
-                    RESERVE SEU EVENTO
-                </a>
-                <a href="#gallery" class="inline-block border-2 text-white px-10 py-4 rounded-none font-semibold text-lg hover:bg-white transition-all duration-300" style="border-color: var(--primary-gray); --hover-text-color: var(--charcoal);">
-                    NOSSA GALERIA
-                </a>
+            <div class="hero__actions" data-aos="fade-up" data-aos-delay="800">
+                <a href="#contact" class="hero__btn hero__btn--primary">RESERVE SEU EVENTO</a>
+                <a href="#gallery" class="hero__btn hero__btn--secondary">NOSSA GALERIA</a>
             </div>
         </div>
-        
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <i class="fas fa-chevron-down text-white text-2xl"></i>
+
+        <div class="hero__scroll-indicator" aria-hidden="true">
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-20" style="background-color: var(--soft-gray);">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <div class="mb-4" data-aos="fade-up">
-                    <span class="font-dancing text-2xl md:text-3xl" style="color: var(--primary-gray);">Nossos</span>
-                </div>
-                <h2 class="text-4xl md:text-5xl font-cormorant font-bold mb-4" data-aos="fade-up" data-aos-delay="200" style="color: var(--charcoal);">
-                    Serviços Exclusivos
-                </h2>
-                <div class="w-16 h-1 mx-auto mb-6" style="background: var(--primary-gray);" data-aos="fade-up" data-aos-delay="400"></div>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto font-light" data-aos="fade-up" data-aos-delay="600">
+    <!-- ============================================
+         SERVICES SECTION
+         ============================================ -->
+    <section id="services" class="services" aria-labelledby="services-title">
+        <div class="services__container">
+            <header class="services__header">
+                <span class="services__greeting" data-aos="fade-up">Nossos</span>
+                <h2 id="services-title" class="services__title" data-aos="fade-up" data-aos-delay="200">Serviços Exclusivos</h2>
+                <div class="services__divider" data-aos="fade-up" data-aos-delay="400"></div>
+                <p class="services__description" data-aos="fade-up" data-aos-delay="600">
                     Cada evento é único e merece um tratamento especial. Oferecemos serviços personalizados para tornar sua celebração inesquecível
                 </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="service-card bg-white rounded-none p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-t-4" style="border-top-color: var(--primary-gray);" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 rounded-none flex items-center justify-center mb-6" style="background: linear-gradient(45deg, var(--primary-gray), var(--secondary-gray));">
-                        <i class="fas fa-glass-cheers text-white text-2xl"></i>
+            </header>
+
+            <div class="services__grid">
+                <article class="service-card service-card--primary" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card__icon">
+                        <i class="fas fa-glass-cheers" aria-hidden="true"></i>
                     </div>
-                    <h3 class="text-2xl font-cormorant font-semibold mb-4" style="color: var(--charcoal);">Casamentos</h3>
-                    <p class="text-gray-600 leading-relaxed font-light">Celebre o dia mais importante da sua vida em um ambiente mágico e sofisticado, com toda a elegância que vocês merecem.</p>
-                </div>
-                
-                <div class="service-card bg-white rounded-none p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-t-4" style="border-top-color: var(--accent-gray);" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 rounded-none flex items-center justify-center mb-6" style="background: linear-gradient(45deg, var(--accent-gray), var(--dark-gray));">
-                        <i class="fas fa-birthday-cake text-white text-2xl"></i>
+                    <h3 class="service-card__title">Casamentos</h3>
+                    <p class="service-card__description">Celebre o dia mais importante da sua vida em um ambiente mágico e sofisticado, com toda a elegância que vocês merecem.</p>
+                </article>
+
+                <article class="service-card service-card--accent" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card__icon">
+                        <i class="fas fa-birthday-cake" aria-hidden="true"></i>
                     </div>
-                    <h3 class="text-2xl font-cormorant font-semibold mb-4" style="color: var(--charcoal);">Aniversários</h3>
-                    <p class="text-gray-600 leading-relaxed font-light">Comemore mais um ano de vida com estilo. Nosso espaço se adapta perfeitamente para festas íntimas ou grandes celebrações.</p>
-                </div>
-                
-                <div class="service-card bg-white rounded-none p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-t-4" style="border-top-color: var(--secondary-gray);" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-16 h-16 rounded-none flex items-center justify-center mb-6" style="background: linear-gradient(45deg, var(--secondary-gray), var(--primary-gray));">
-                        <i class="fas fa-briefcase text-white text-2xl"></i>
+                    <h3 class="service-card__title">Aniversários</h3>
+                    <p class="service-card__description">Comemore mais um ano de vida com estilo. Nosso espaço se adapta perfeitamente para festas íntimas ou grandes celebrações.</p>
+                </article>
+
+                <article class="service-card service-card--secondary" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card__icon">
+                        <i class="fas fa-briefcase" aria-hidden="true"></i>
                     </div>
-                    <h3 class="text-2xl font-cormorant font-semibold mb-4" style="color: var(--charcoal);">Eventos Corporativos</h3>
-                    <p class="text-gray-600 leading-relaxed font-light">Impressione seus clientes e colaboradores com eventos corporativos em um ambiente profissional e elegante.</p>
-                </div>
-                
-                <div class="service-card bg-white rounded-none p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-t-4" style="border-top-color: var(--primary-gray);" data-aos="fade-up" data-aos-delay="400">
-                    <div class="w-16 h-16 rounded-none flex items-center justify-center mb-6" style="background: linear-gradient(45deg, var(--primary-gray), var(--accent-gray));">
-                        <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                    <h3 class="service-card__title">Eventos Corporativos</h3>
+                    <p class="service-card__description">Impressione seus clientes e colaboradores com eventos corporativos em um ambiente profissional e elegante.</p>
+                </article>
+
+                <article class="service-card service-card--primary" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card__icon">
+                        <i class="fas fa-graduation-cap" aria-hidden="true"></i>
                     </div>
-                    <h3 class="text-2xl font-cormorant font-semibold mb-4" style="color: var(--charcoal);">Formaturas</h3>
-                    <p class="text-gray-600 leading-relaxed font-light">Celebre suas conquistas acadêmicas em grande estilo. Um momento único merece um local especial.</p>
-                </div>
-                
-                <div class="service-card bg-white rounded-none p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-t-4" style="border-top-color: var(--accent-gray);" data-aos="fade-up" data-aos-delay="500">
-                    <div class="w-16 h-16 rounded-none flex items-center justify-center mb-6" style="background: linear-gradient(45deg, var(--accent-gray), var(--secondary-gray));">
-                        <i class="fas fa-heart text-white text-2xl"></i>
+                    <h3 class="service-card__title">Formaturas</h3>
+                    <p class="service-card__description">Celebre suas conquistas acadêmicas em grande estilo. Um momento único merece um local especial.</p>
+                </article>
+
+                <article class="service-card service-card--accent" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-card__icon">
+                        <i class="fas fa-heart" aria-hidden="true"></i>
                     </div>
-                    <h3 class="text-2xl font-cormorant font-semibold mb-4" style="color: var(--charcoal);">Bodas</h3>
-                    <p class="text-gray-600 leading-relaxed font-light">Renovem seus votos e celebrem anos de amor em um ambiente romântico e acolhedor.</p>
-                </div>
-                
-                <div class="service-card bg-white rounded-none p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-t-4" style="border-top-color: var(--secondary-gray);" data-aos="fade-up" data-aos-delay="600">
-                    <div class="w-16 h-16 rounded-none flex items-center justify-center mb-6" style="background: linear-gradient(45deg, var(--secondary-gray), var(--dark-gray));">
-                        <i class="fas fa-star text-white text-2xl"></i>
+                    <h3 class="service-card__title">Bodas</h3>
+                    <p class="service-card__description">Renovem seus votos e celebrem anos de amor em um ambiente romântico e acolhedor.</p>
+                </article>
+
+                <article class="service-card service-card--secondary" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-card__icon">
+                        <i class="fas fa-star" aria-hidden="true"></i>
                     </div>
-                    <h3 class="text-2xl font-cormorant font-semibold mb-4" style="color: var(--charcoal);">Eventos Especiais</h3>
-                    <p class="text-gray-600 leading-relaxed font-light">Qualquer que seja a ocasião, estamos prontos para tornar seu evento único e memorável.</p>
-                </div>
+                    <h3 class="service-card__title">Eventos Especiais</h3>
+                    <p class="service-card__description">Qualquer que seja a ocasião, estamos prontos para tornar seu evento único e memorável.</p>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-20" style="background: linear-gradient(135deg, var(--light-gray) 0%, var(--light-cream) 100%);">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <div class="mb-4" data-aos="fade-up">
-                    <span class="font-dancing text-2xl md:text-3xl" style="color: var(--primary-gray);">Conheça</span>
-                </div>
-                <h2 class="text-4xl md:text-5xl font-cormorant font-bold mb-4" data-aos="fade-up" data-aos-delay="200" style="color: var(--charcoal);">
-                    Nossa História
-                </h2>
-                <div class="w-16 h-1 mx-auto mb-6" style="background: var(--primary-gray);" data-aos="fade-up" data-aos-delay="400"></div>
-                <p class="text-xl text-gray-600 max-w-4xl mx-auto font-light leading-relaxed" data-aos="fade-up" data-aos-delay="600">
+    <!-- ============================================
+         ABOUT SECTION
+         ============================================ -->
+    <section id="about" class="about" aria-labelledby="about-title">
+        <div class="about__container">
+            <header class="about__header">
+                <span class="about__greeting" data-aos="fade-up">Conheça</span>
+                <h2 id="about-title" class="about__title" data-aos="fade-up" data-aos-delay="200">Nossa História</h2>
+                <div class="about__divider" data-aos="fade-up" data-aos-delay="400"></div>
+                <p class="about__lead" data-aos="fade-up" data-aos-delay="600">
                     Há mais de 15 anos criando momentos únicos e inesquecíveis. Nossa paixão pela excelência nos tornou referência em eventos sofisticados.
                 </p>
+            </header>
+
+            <div class="about__stats">
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-card__icon">
+                        <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="stat-card__number">15+</h3>
+                    <p class="stat-card__label">Anos de Experiência</p>
+                </div>
+
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-card__icon">
+                        <i class="fas fa-heart" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="stat-card__number">2.500+</h3>
+                    <p class="stat-card__label">Eventos Realizados</p>
+                </div>
+
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-card__icon">
+                        <i class="fas fa-users" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="stat-card__number">500</h3>
+                    <p class="stat-card__label">Capacidade Máxima</p>
+                </div>
+
+                <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-card__icon">
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="stat-card__number">98%</h3>
+                    <p class="stat-card__label">Satisfação dos Clientes</p>
+                </div>
             </div>
-            
-            <!-- Statistics -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center" style="background: var(--gray-gradient);">
-                        <i class="fas fa-calendar-alt text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-4xl font-cormorant font-bold mb-2" style="color: var(--primary-gray);">15+</h3>
-                    <p class="text-gray-600 font-medium">Anos de Experiência</p>
-                </div>
-                
-                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center" style="background: var(--gray-gradient);">
-                        <i class="fas fa-heart text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-4xl font-cormorant font-bold mb-2" style="color: var(--primary-gray);">2.500+</h3>
-                    <p class="text-gray-600 font-medium">Eventos Realizados</p>
-                </div>
-                
-                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center" style="background: var(--gray-gradient);">
-                        <i class="fas fa-users text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-4xl font-cormorant font-bold mb-2" style="color: var(--primary-gray);">500</h3>
-                    <p class="text-gray-600 font-medium">Capacidade Máxima</p>
-                </div>
-                
-                <div class="text-center" data-aos="fade-up" data-aos-delay="400">
-                    <div class="w-20 h-20 rounded-full mx-auto mb-4 flex items-center justify-center" style="background: var(--gray-gradient);">
-                        <i class="fas fa-star text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-4xl font-cormorant font-bold mb-2" style="color: var(--primary-gray);">98%</h3>
-                    <p class="text-gray-600 font-medium">Satisfação dos Clientes</p>
-                </div>
-            </div>
-            
-            <!-- About Content -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div data-aos="fade-right">
-                    <h3 class="text-3xl font-cormorant font-bold mb-6" style="color: var(--charcoal);">Elegância e Sofisticação</h3>
-                    <p class="text-gray-600 leading-relaxed mb-6">
-                        Fundado em 2009, o Elegance Hall nasceu do sonho de criar um espaço único onde cada evento se torna uma experiência memorável. Nossa arquitetura clássica combinada com tecnologia moderna oferece o ambiente perfeito para suas celebrações.
-                    </p>
-                    <p class="text-gray-600 leading-relaxed mb-6">
-                        Com capacidade para até 500 convidados, nosso salão principal possui pé-direito alto, lustres de cristal e uma decoração refinada que se adapta a qualquer estilo de evento. Além disso, contamos com espaços auxiliares, jardim externo e estacionamento privativo.
-                    </p>
-                    <div class="flex items-center space-x-6">
-                        <div class="text-center">
-                            <div class="text-2xl font-cormorant font-bold" style="color: var(--primary-gray);">1.200m²</div>
-                            <div class="text-sm text-gray-600">Área Total</div>
+
+            <div class="about__content">
+                <div class="about__text" data-aos="fade-right">
+                    <h3>Elegância e Sofisticação</h3>
+                    <p>Fundado em 2009, o Elegance Hall nasceu do sonho de criar um espaço único onde cada evento se torna uma experiência memorável. Nossa arquitetura clássica combinada com tecnologia moderna oferece o ambiente perfeito para suas celebrações.</p>
+                    <p>Com capacidade para até 500 convidados, nosso salão principal possui pé-direito alto, lustres de cristal e uma decoração refinada que se adapta a qualquer estilo de evento. Além disso, contamos com espaços auxiliares, jardim externo e estacionamento privativo.</p>
+                    <div class="about__metrics">
+                        <div class="about__metric">
+                            <div class="about__metric-value">1.200m²</div>
+                            <div class="about__metric-label">Área Total</div>
                         </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-cormorant font-bold" style="color: var(--primary-gray);">150</div>
-                            <div class="text-sm text-gray-600">Vagas de Estacionamento</div>
+                        <div class="about__metric">
+                            <div class="about__metric-value">150</div>
+                            <div class="about__metric-label">Vagas de Estacionamento</div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="relative" data-aos="fade-left">
-                    <div class="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden shadow-2xl">
-                        <div class="w-full h-96 flex items-center justify-center" style="background: var(--gray-gradient);">
-                            <div class="text-center text-white">
-                                <i class="fas fa-building text-6xl mb-4 opacity-80"></i>
-                                <p class="text-xl font-cormorant">Nosso Elegante Salão</p>
-                            </div>
+
+                <div class="about__image" data-aos="fade-left">
+                    <div class="about__image-frame" style="background-image: url('https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1200&q=80&auto=format&fit=crop');">
+                        <div style="text-align: center; display: none;">
+                            <i class="fas fa-building" aria-hidden="true"></i>
+                            <p>Nosso Elegante Salão</p>
                         </div>
                     </div>
-                    <div class="absolute -bottom-6 right-0 md:-right-6 w-24 h-24 rounded-full flex items-center justify-center" style="background: var(--primary-gray);">
-                        <i class="fas fa-bell text-white"></i>
+                    <div class="about__image-badge" aria-hidden="true">
+                        <i class="fas fa-bell"></i>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <div class="mb-4" data-aos="fade-up">
-                    <span class="font-dancing text-2xl md:text-3xl" style="color: var(--primary-gray);">Momentos</span>
-                </div>
-                <h2 class="text-4xl md:text-5xl font-cormorant font-bold mb-4" data-aos="fade-up" data-aos-delay="200" style="color: var(--charcoal);">
-                    Galeria de Eventos
-                </h2>
-                <div class="w-16 h-1 mx-auto mb-6" style="background: var(--primary-gray);" data-aos="fade-up" data-aos-delay="400"></div>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto font-light" data-aos="fade-up" data-aos-delay="600">
+    <!-- ============================================
+         GALLERY SECTION
+         ============================================ -->
+    <section id="gallery" class="gallery" aria-labelledby="gallery-title">
+        <div class="gallery__container">
+            <header class="gallery__header">
+                <span class="gallery__greeting" data-aos="fade-up">Momentos</span>
+                <h2 id="gallery-title" class="gallery__title" data-aos="fade-up" data-aos-delay="200">Galeria de Eventos</h2>
+                <div class="gallery__divider" data-aos="fade-up" data-aos-delay="400"></div>
+                <p class="gallery__description" data-aos="fade-up" data-aos-delay="600">
                     Cada evento é único e especial. Veja alguns dos momentos mágicos que já aconteceram em nosso elegante salão
                 </p>
+            </header>
+
+            <div class="gallery__categories">
+                <div class="gallery-category" data-aos="fade-up" data-aos-delay="100">
+                    <div class="gallery-category__icon">
+                        <i class="fas fa-ring" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="gallery-category__title">Casamentos</h3>
+                    <p class="gallery-category__description">Cerimônias elegantes e inesquecíveis</p>
+                </div>
+
+                <div class="gallery-category" data-aos="fade-up" data-aos-delay="200">
+                    <div class="gallery-category__icon">
+                        <i class="fas fa-birthday-cake" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="gallery-category__title">Celebrações</h3>
+                    <p class="gallery-category__description">Aniversários e festas especiais</p>
+                </div>
+
+                <div class="gallery-category" data-aos="fade-up" data-aos-delay="300">
+                    <div class="gallery-category__icon">
+                        <i class="fas fa-briefcase" aria-hidden="true"></i>
+                    </div>
+                    <h3 class="gallery-category__title">Corporativos</h3>
+                    <p class="gallery-category__description">Eventos empresariais sofisticados</p>
+                </div>
             </div>
-            
-            <!-- Event Categories -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center" style="background: var(--gray-gradient);">
-                        <i class="fas fa-ring text-white text-xl"></i>
+
+            <div class="gallery__grid">
+                <article class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="gallery-item__image" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80&auto=format&fit=crop');">
                     </div>
-                    <h3 class="text-xl font-cormorant font-semibold mb-2" style="color: var(--charcoal);">Casamentos</h3>
-                    <p class="text-gray-600 text-sm">Cerimônias elegantes e inesquecíveis</p>
-                </div>
-                
-                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center" style="background: var(--gray-gradient);">
-                        <i class="fas fa-birthday-cake text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-cormorant font-semibold mb-2" style="color: var(--charcoal);">Celebrações</h3>
-                    <p class="text-gray-600 text-sm">Aniversários e festas especiais</p>
-                </div>
-                
-                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center" style="background: var(--gray-gradient);">
-                        <i class="fas fa-briefcase text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-cormorant font-semibold mb-2" style="color: var(--charcoal);">Corporativos</h3>
-                    <p class="text-gray-600 text-sm">Eventos empresariais sofisticados</p>
-                </div>
-            </div>
-            
-            <!-- Photo Gallery -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="gallery-item relative overflow-hidden rounded-lg shadow-lg group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="aspect-w-4 aspect-h-3">
-                        <div class="w-full h-64 flex items-center justify-center" style="background: linear-gradient(135deg, var(--primary-gray), var(--accent-gray));">
-                            <div class="text-center text-white">
-                                <i class="fas fa-heart text-4xl mb-2 opacity-80"></i>
-                                <p class="font-cormorant text-lg">Casamento Elegante</p>
-                            </div>
+                    <div class="gallery-item__overlay">
+                        <div>
+                            <h4 class="gallery-item__title">Casamento dos Sonhos</h4>
+                            <p class="gallery-item__subtitle">Uma celebração inesquecível</p>
                         </div>
                     </div>
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <div class="text-center text-white">
-                            <h4 class="font-cormorant text-xl mb-2">Casamento dos Sonhos</h4>
-                            <p class="text-sm opacity-90">Uma celebração inesquecível</p>
+                </article>
+
+                <article class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="gallery-item__image" style="background-image: url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80&auto=format&fit=crop');">
+                    </div>
+                    <div class="gallery-item__overlay">
+                        <div>
+                            <h4 class="gallery-item__title">Debutante Especial</h4>
+                            <p class="gallery-item__subtitle">Uma noite mágica e elegante</p>
                         </div>
                     </div>
-                </div>
-                
-                <div class="gallery-item relative overflow-hidden rounded-lg shadow-lg group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="aspect-w-4 aspect-h-3">
-                        <div class="w-full h-64 flex items-center justify-center" style="background: linear-gradient(135deg, var(--accent-gray), var(--dark-gray));">
-                            <div class="text-center text-white">
-                                <i class="fas fa-birthday-cake text-4xl mb-2 opacity-80"></i>
-                                <p class="font-cormorant text-lg">Festa de 15 Anos</p>
-                            </div>
+                </article>
+
+                <article class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="gallery-item__image" style="background-image: url('https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&q=80&auto=format&fit=crop');">
+                    </div>
+                    <div class="gallery-item__overlay">
+                        <div>
+                            <h4 class="gallery-item__title">Gala Empresarial</h4>
+                            <p class="gallery-item__subtitle">Networking em grande estilo</p>
                         </div>
                     </div>
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <div class="text-center text-white">
-                            <h4 class="font-cormorant text-xl mb-2">Debutante Especial</h4>
-                            <p class="text-sm opacity-90">Uma noite mágica e elegante</p>
+                </article>
+
+                <article class="gallery-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="gallery-item__image" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80&auto=format&fit=crop');">
+                    </div>
+                    <div class="gallery-item__overlay">
+                        <div>
+                            <h4 class="gallery-item__title">Conquista Acadêmica</h4>
+                            <p class="gallery-item__subtitle">Celebrando o sucesso</p>
                         </div>
                     </div>
-                </div>
-                
-                <div class="gallery-item relative overflow-hidden rounded-lg shadow-lg group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="aspect-w-4 aspect-h-3">
-                        <div class="w-full h-64 flex items-center justify-center" style="background: linear-gradient(135deg, var(--secondary-gray), var(--primary-gray));">
-                            <div class="text-center text-white">
-                                <i class="fas fa-briefcase text-4xl mb-2 opacity-80"></i>
-                                <p class="font-cormorant text-lg">Evento Corporativo</p>
-                            </div>
+                </article>
+
+                <article class="gallery-item" data-aos="fade-up" data-aos-delay="500">
+                    <div class="gallery-item__image" style="background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80&auto=format&fit=crop');">
+                    </div>
+                    <div class="gallery-item__overlay">
+                        <div>
+                            <h4 class="gallery-item__title">50 Anos de Amor</h4>
+                            <p class="gallery-item__subtitle">Renovando os votos</p>
                         </div>
                     </div>
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <div class="text-center text-white">
-                            <h4 class="font-cormorant text-xl mb-2">Gala Empresarial</h4>
-                            <p class="text-sm opacity-90">Networking em grande estilo</p>
+                </article>
+
+                <article class="gallery-item" data-aos="fade-up" data-aos-delay="600">
+                    <div class="gallery-item__image" style="background-image: url('https://images.unsplash.com/photo-1478146059778-26028b07395a?w=800&q=80&auto=format&fit=crop');">
+                    </div>
+                    <div class="gallery-item__overlay">
+                        <div>
+                            <h4 class="gallery-item__title">Celebração Exclusiva</h4>
+                            <p class="gallery-item__subtitle">Momentos únicos e especiais</p>
                         </div>
                     </div>
-                </div>
-                
-                <div class="gallery-item relative overflow-hidden rounded-lg shadow-lg group" data-aos="fade-up" data-aos-delay="400">
-                    <div class="aspect-w-4 aspect-h-3">
-                        <div class="w-full h-64 flex items-center justify-center" style="background: linear-gradient(135deg, var(--dark-gray), var(--accent-gray));">
-                            <div class="text-center text-white">
-                                <i class="fas fa-graduation-cap text-4xl mb-2 opacity-80"></i>
-                                <p class="font-cormorant text-lg">Formatura</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <div class="text-center text-white">
-                            <h4 class="font-cormorant text-xl mb-2">Conquista Acadêmica</h4>
-                            <p class="text-sm opacity-90">Celebrando o sucesso</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item relative overflow-hidden rounded-lg shadow-lg group" data-aos="fade-up" data-aos-delay="500">
-                    <div class="aspect-w-4 aspect-h-3">
-                        <div class="w-full h-64 flex items-center justify-center" style="background: linear-gradient(135deg, var(--primary-gray), var(--secondary-gray));">
-                            <div class="text-center text-white">
-                                <i class="fas fa-anniversary text-4xl mb-2 opacity-80"></i>
-                                <p class="font-cormorant text-lg">Bodas de Ouro</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <div class="text-center text-white">
-                            <h4 class="font-cormorant text-xl mb-2">50 Anos de Amor</h4>
-                            <p class="text-sm opacity-90">Renovando os votos</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item relative overflow-hidden rounded-lg shadow-lg group" data-aos="fade-up" data-aos-delay="600">
-                    <div class="aspect-w-4 aspect-h-3">
-                        <div class="w-full h-64 flex items-center justify-center" style="background: linear-gradient(135deg, var(--accent-gray), var(--primary-gray));">
-                            <div class="text-center text-white">
-                                <i class="fas fa-star text-4xl mb-2 opacity-80"></i>
-                                <p class="font-cormorant text-lg">Evento Premium</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <div class="text-center text-white">
-                            <h4 class="font-cormorant text-xl mb-2">Celebração Exclusiva</h4>
-                            <p class="text-sm opacity-90">Momentos únicos e especiais</p>
-                        </div>
-                    </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Captivating Images & Phrases Section -->
-    <section class="py-20" style="background: linear-gradient(135deg, var(--light-gray) 0%, rgba(248, 249, 250, 0.8) 100%);">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <div class="mb-4" data-aos="fade-up">
-                    <span class="font-dancing text-2xl md:text-3xl" style="color: var(--primary-gray);">Inspiração</span>
-                </div>
-                <h2 class="text-4xl md:text-5xl font-cormorant font-bold mb-4" data-aos="fade-up" data-aos-delay="200" style="color: var(--charcoal);">
-                    Momentos que Inspiram
-                </h2>
-                <div class="w-16 h-1 mx-auto mb-6" style="background: var(--primary-gray);" data-aos="fade-up" data-aos-delay="400"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <!-- First Image & Phrase -->
-                <div class="relative" data-aos="fade-right" data-aos-delay="100">
-                    <div class="aspect-w-16 aspect-h-10 rounded-lg overflow-hidden shadow-xl">
-                        <div class="w-full h-80 flex items-center justify-center" style="background: linear-gradient(135deg, var(--primary-gray), var(--accent-gray));">
-                            <div class="text-center text-white">
-                                <i class="fas fa-crown text-6xl mb-4 opacity-80"></i>
-                                <p class="font-cormorant text-2xl">Elegância Real</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="absolute -bottom-6 right-0 md:-right-6 w-24 h-24 rounded-full flex items-center justify-center" style="background: var(--primary-gray);">
-                        <i class="fas fa-bell text-white"></i>
-                    </div>
-                </div>
-                
-                <div class="space-y-8" data-aos="fade-left" data-aos-delay="200">
-                    <div class="text-center lg:text-left">
-                        <h3 class="text-3xl font-cormorant font-bold mb-4" style="color: var(--charcoal);">Onde Sonhos se Tornam Realidade</h3>
-                        <p class="text-lg text-gray-600 leading-relaxed mb-6">
-                            Nosso salão é mais que um espaço - é o cenário perfeito onde cada celebração ganha vida com elegância e sofisticação.
-                        </p>
-                        <div class="flex items-center justify-center lg:justify-start space-x-4">
-                            <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: var(--gray-gradient);">
-                                <i class="fas fa-sparkles text-white"></i>
-                            </div>
-                            <span class="text-lg font-cormorant" style="color: var(--primary-gray);">Magia em Cada Detalhe</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-20">
-                <div class="space-y-8 order-2 lg:order-1" data-aos="fade-right" data-aos-delay="300">
-                    <div class="text-center lg:text-left">
-                        <h3 class="text-3xl font-cormorant font-bold mb-4" style="color: var(--charcoal);">Tradição e Modernidade</h3>
-                        <p class="text-lg text-gray-600 leading-relaxed mb-6">
-                            Combinamos a tradição de 25 anos de experiência com as mais modernas tendências em eventos sociais.
-                        </p>
-                        <div class="flex items-center justify-center lg:justify-start space-x-4">
-                            <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: var(--gray-gradient);">
-                                <i class="fas fa-heart text-white"></i>
-                            </div>
-                            <span class="text-lg font-cormorant" style="color: var(--primary-gray);">Amor em Cada Celebração</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Second Image & Phrase -->
-                <div class="relative order-1 lg:order-2" data-aos="fade-left" data-aos-delay="400">
-                    <div class="aspect-w-16 aspect-h-10 rounded-lg overflow-hidden shadow-xl">
-                        <div class="w-full h-80 flex items-center justify-center" style="background: linear-gradient(135deg, var(--accent-gray), var(--dark-gray));">
-                            <div class="text-center text-white">
-                                <i class="fas fa-gem text-6xl mb-4 opacity-80"></i>
-                                <p class="font-cormorant text-2xl">Luxo Refinado</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="absolute -bottom-6 left-0 md:-left-6 bg-white p-6 rounded-lg shadow-lg max-w-xs">
-                        <blockquote class="text-gray-700 font-light italic">
-                            "Um ambiente que respira sofisticação e acolhe com carinho cada momento especial"
-                        </blockquote>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Location & Map Section -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <div class="mb-4" data-aos="fade-up">
-                    <span class="font-dancing text-2xl md:text-3xl" style="color: var(--primary-gray);">Localização</span>
-                </div>
-                <h2 class="text-4xl md:text-5xl font-cormorant font-bold mb-4" data-aos="fade-up" data-aos-delay="200" style="color: var(--charcoal);">
-                    Encontre-nos
-                </h2>
-                <div class="w-16 h-1 mx-auto mb-6" style="background: var(--primary-gray);" data-aos="fade-up" data-aos-delay="400"></div>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto font-light" data-aos="fade-up" data-aos-delay="600">
+    <!-- ============================================
+         LOCATION SECTION
+         ============================================ -->
+    <section class="location" aria-labelledby="location-title">
+        <div class="location__container">
+            <header class="location__header">
+                <span class="location__greeting" data-aos="fade-up">Localização</span>
+                <h2 id="location-title" class="location__title" data-aos="fade-up" data-aos-delay="200">Encontre-nos</h2>
+                <div class="location__divider" data-aos="fade-up" data-aos-delay="400"></div>
+                <p class="location__description" data-aos="fade-up" data-aos-delay="600">
                     Localizado no coração da cidade, nosso salão oferece fácil acesso e estacionamento amplo para seus convidados
                 </p>
-            </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                <!-- Location Info -->
-                <div class="space-y-8" data-aos="fade-right" data-aos-delay="100">
-                    <div class="bg-gradient-to-br from-gray-50 to-white p-8 rounded-lg shadow-lg border border-gray-100">
-                        <h3 class="text-2xl font-cormorant font-bold mb-6" style="color: var(--charcoal);">Informações do Local</h3>
-                        
-                        <div class="space-y-4">
-                            <div class="flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background: var(--gray-gradient);">
-                                    <i class="fas fa-map-marker-alt text-white text-sm"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800 mb-1">Endereço</h4>
-                                    <p class="text-gray-600">Rua das Celebrações, 123<br>Centro - Cidade Exemplo<br>CEP: 12345-678</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start space-x-4">
-                                <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background: var(--gray-gradient);">
-                                    <i class="fas fa-car text-white text-sm"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800 mb-1">Estacionamento</h4>
-                                    <p class="text-gray-600">150 vagas cobertas<br>Acesso facilitado<br>Segurança 24h</p>
-                                </div>
-                            </div>
+            </header>
 
-                            <div class="text-center">
-                                <a href="#contact" class="inline-flex items-center px-8 py-4 text-white font-semibold rounded-lg transition-all duration-300 hover:transform hover:scale-105 shadow-lg" style="background: var(--gray-gradient);">
-                            <i class="fas fa-route mr-2"></i>
+            <div class="location__grid">
+                <div class="location__info-card" data-aos="fade-right" data-aos-delay="100">
+                    <h3 class="location__info-title">Informações do Local</h3>
+
+                    <div class="location__info-list">
+                        <div class="location__info-item">
+                            <div class="location__info-icon">
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h4>Endereço</h4>
+                                <p>Rua das Celebrações, 123<br>Centro - Cidade Exemplo<br>CEP: 12345-678</p>
+                            </div>
+                        </div>
+
+                        <div class="location__info-item">
+                            <div class="location__info-icon">
+                                <i class="fas fa-car" aria-hidden="true"></i>
+                            </div>
+                            <div>
+                                <h4>Estacionamento</h4>
+                                <p>150 vagas cobertas<br>Acesso facilitado<br>Segurança 24h</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="location__button-wrapper">
+                        <a href="#contact" class="location__button">
+                            <i class="fas fa-route" aria-hidden="true"></i>
                             Como Chegar
                         </a>
                     </div>
-                        </div>
-                    </div>
-                    
-                    
                 </div>
-                
-                <!-- Map Placeholder -->
-                <div class="" data-aos="fade-left" data-aos-delay="200">
-                    <div class="bg-gray-100 rounded-lg overflow-hidden shadow-lg border border-gray-200">
-                        <div class="aspect-w-16 aspect-h-12">
-                            <div class="w-full h-96 flex items-center justify-center" style="background: linear-gradient(135deg, var(--light-gray), rgba(248, 249, 250, 0.5));">
-                                <div class="text-center">
-                                    <i class="fas fa-map text-6xl mb-4" style="color: var(--primary-gray);"></i>
-                                    <h4 class="text-xl font-cormorant font-semibold mb-2" style="color: var(--charcoal);">Mapa Interativo</h4>
-                                    <p class="text-gray-600 mb-4">Visualize nossa localização privilegiada</p>
-                                    <button class="px-6 py-2 text-white rounded-lg transition-all duration-300 hover:transform hover:scale-105" style="background: var(--gray-gradient);">
-                                        <i class="fas fa-external-link-alt mr-2"></i>
-                                        Abrir no Google Maps
-                                    </button>
-                                </div>
-                            </div>
+
+                <div class="location__map" data-aos="fade-left" data-aos-delay="200">
+                    <div class="location__map-placeholder" style="background-image: linear-gradient(135deg, rgba(243, 244, 246, 0.85), rgba(248, 249, 250, 0.75)), url('https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1200&q=80&auto=format&fit=crop'); background-size: cover; background-position: center;">
+                        <div>
+                            <i class="fas fa-map" aria-hidden="true"></i>
+                            <h4>Mapa Interativo</h4>
+                            <p>Visualize nossa localização privilegiada</p>
+                            <button type="button" class="location__map-button">
+                                <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                                Abrir no Google Maps
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -560,169 +412,151 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-gray-800 mb-4" data-aos="fade-up">
-                    O Que Dizem Nossos Clientes
-                </h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+    <!-- ============================================
+         TESTIMONIALS SECTION
+         ============================================ -->
+    <section id="testimonials" class="testimonials" aria-labelledby="testimonials-title">
+        <div class="testimonials__container">
+            <header class="testimonials__header">
+                <h2 id="testimonials-title" class="testimonials__title" data-aos="fade-up">O Que Dizem Nossos Clientes</h2>
+                <p class="testimonials__description" data-aos="fade-up" data-aos-delay="200">
                     Depoimentos de quem já viveu momentos inesquecíveis conosco
                 </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="testimonial-card bg-white rounded-2xl p-8 shadow-lg" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-center mb-4">
-                        <div class="flex text-yellow-400">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
+            </header>
+
+            <div class="testimonials__grid">
+                <article class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card__rating" aria-label="Avaliação 5 estrelas">
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
                     </div>
-                    <p class="text-gray-600 mb-6 italic leading-relaxed">
-                        "Nosso casamento foi perfeito! O salão é lindo e a equipe foi incrível. Todos os nossos convidados elogiaram o local."
-                    </p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full flex items-center justify-center mr-4">
-                            <span class="text-white font-semibold">MC</span>
-                        </div>
+                    <p class="testimonial-card__text">"Nosso casamento foi perfeito! O salão é lindo e a equipe foi incrível. Todos os nossos convidados elogiaram o local."</p>
+                    <div class="testimonial-card__author">
+                        <div class="testimonial-card__avatar">MC</div>
                         <div>
-                            <h4 class="font-semibold">Maria & Carlos</h4>
-                            <p class="text-gray-500 text-sm">Casamento</p>
+                            <h4 class="testimonial-card__name">Maria & Carlos</h4>
+                            <p class="testimonial-card__event">Casamento</p>
                         </div>
                     </div>
-                </div>
-                
-                <div class="testimonial-card bg-white rounded-2xl p-8 shadow-lg" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex items-center mb-4">
-                        <div class="flex text-yellow-400">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
+                </article>
+
+                <article class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card__rating" aria-label="Avaliação 5 estrelas">
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
                     </div>
-                    <p class="text-gray-600 mb-6 italic leading-relaxed">
-                        "Celebramos os 15 anos da nossa filha aqui e foi mágico! O ambiente é sofisticado e acolhedor ao mesmo tempo."
-                    </p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full flex items-center justify-center mr-4">
-                            <span class="text-white font-semibold">AS</span>
-                        </div>
+                    <p class="testimonial-card__text">"Celebramos os 15 anos da nossa filha aqui e foi mágico! O ambiente é sofisticado e acolhedor ao mesmo tempo."</p>
+                    <div class="testimonial-card__author">
+                        <div class="testimonial-card__avatar">AS</div>
                         <div>
-                            <h4 class="font-semibold">Ana Silva</h4>
-                            <p class="text-gray-500 text-sm">Festa de 15 Anos</p>
+                            <h4 class="testimonial-card__name">Ana Silva</h4>
+                            <p class="testimonial-card__event">Festa de 15 Anos</p>
                         </div>
                     </div>
-                </div>
-                
-                <div class="testimonial-card bg-white rounded-2xl p-8 shadow-lg" data-aos="fade-up" data-aos-delay="300">
-                    <div class="flex items-center mb-4">
-                        <div class="flex text-yellow-400">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
+                </article>
+
+                <article class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="testimonial-card__rating" aria-label="Avaliação 5 estrelas">
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
                     </div>
-                    <p class="text-gray-600 mb-6 italic leading-relaxed">
-                        "Realizamos nosso evento corporativo aqui e superou todas as expectativas. Profissionalismo e elegância em cada detalhe."
-                    </p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gradient-to-r from-pink-400 to-purple-500 rounded-full flex items-center justify-center mr-4">
-                            <span class="text-white font-semibold">RS</span>
-                        </div>
+                    <p class="testimonial-card__text">"Realizamos nosso evento corporativo aqui e superou todas as expectativas. Profissionalismo e elegância em cada detalhe."</p>
+                    <div class="testimonial-card__author">
+                        <div class="testimonial-card__avatar">RS</div>
                         <div>
-                            <h4 class="font-semibold">Roberto Santos</h4>
-                            <p class="text-gray-500 text-sm">Evento Corporativo</p>
+                            <h4 class="testimonial-card__name">Roberto Santos</h4>
+                            <p class="testimonial-card__event">Evento Corporativo</p>
                         </div>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-playfair font-bold text-gray-800 mb-4" data-aos="fade-up">
-                    Entre em Contato
-                </h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+    <!-- ============================================
+         CONTACT SECTION
+         ============================================ -->
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+        <div class="contact__container">
+            <header class="contact__header">
+                <h2 id="contact-title" class="contact__title" data-aos="fade-up">Entre em Contato</h2>
+                <p class="contact__description" data-aos="fade-up" data-aos-delay="200">
                     Vamos conversar sobre o seu evento dos sonhos
                 </p>
-            </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div class="space-y-8" data-aos="fade-right">
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-map-marker-alt text-white"></i>
+            </header>
+
+            <div class="contact__grid">
+                <div class="contact__info" data-aos="fade-right">
+                    <div class="contact-info-item">
+                        <div class="contact-info-item__icon">
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
                         </div>
-                        <div>
-                            <h3 class="text-xl font-semibold mb-2">Endereço</h3>
-                            <p class="text-gray-600">Rua das Flores, 123<br>Centro - Cidade Exemplo<br>CEP: 12345-678</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-phone text-white"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold mb-2">Telefone</h3>
-                            <p class="text-gray-600">(11) 99999-9999<br>(11) 3333-3333</p>
+                        <div class="contact-info-item__content">
+                            <h3>Endereço</h3>
+                            <p>Rua das Flores, 123<br>Centro - Cidade Exemplo<br>CEP: 12345-678</p>
                         </div>
                     </div>
-                    
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-envelope text-white"></i>
+
+                    <div class="contact-info-item">
+                        <div class="contact-info-item__icon">
+                            <i class="fas fa-phone" aria-hidden="true"></i>
                         </div>
-                        <div>
-                            <h3 class="text-xl font-semibold mb-2">E-mail</h3>
-                            <p class="text-gray-600">contato@elegancehall.com.br<br>eventos@elegancehall.com.br</p>
+                        <div class="contact-info-item__content">
+                            <h3>Telefone</h3>
+                            <p>(11) 99999-9999<br>(11) 3333-3333</p>
                         </div>
                     </div>
-                    
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0">
-                            <i class="fas fa-clock text-white"></i>
+
+                    <div class="contact-info-item">
+                        <div class="contact-info-item__icon">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
                         </div>
-                        <div>
-                            <h3 class="text-xl font-semibold mb-2">Horário de Funcionamento</h3>
-                            <p class="text-gray-600">Segunda a Sexta: 9h às 18h<br>Sábado: 9h às 16h<br>Domingo: Fechado</p>
+                        <div class="contact-info-item__content">
+                            <h3>E-mail</h3>
+                            <p>contato@elegancehall.com.br<br>eventos@elegancehall.com.br</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <div class="contact-info-item__icon">
+                            <i class="fas fa-clock" aria-hidden="true"></i>
+                        </div>
+                        <div class="contact-info-item__content">
+                            <h3>Horário de Funcionamento</h3>
+                            <p>Segunda a Sexta: 9h às 18h<br>Sábado: 9h às 16h<br>Domingo: Fechado</p>
                         </div>
                     </div>
                 </div>
-                
-                <div class="bg-gray-50 rounded-2xl p-8" data-aos="fade-left">
-                    <form class="space-y-6" id="contact-form">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Nome Completo</label>
-                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300">
+
+                <div class="contact__form-wrapper" data-aos="fade-left">
+                    <form class="contact__form" id="contact-form" novalidate>
+                        <div class="form-group">
+                            <label for="name" class="form-group__label">Nome Completo</label>
+                            <input type="text" id="name" name="name" required class="form-group__input" autocomplete="name">
                         </div>
-                        
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">E-mail</label>
-                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300">
+
+                        <div class="form-group">
+                            <label for="email" class="form-group__label">E-mail</label>
+                            <input type="email" id="email" name="email" required class="form-group__input" autocomplete="email">
                         </div>
-                        
-                        <div>
-                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Telefone</label>
-                            <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300">
+
+                        <div class="form-group">
+                            <label for="phone" class="form-group__label">Telefone</label>
+                            <input type="tel" id="phone" name="phone" class="form-group__input" autocomplete="tel">
                         </div>
-                        
-                        <div>
-                            <label for="event-type" class="block text-sm font-medium text-gray-700 mb-2">Tipo de Evento</label>
-                            <select id="event-type" name="event-type" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300">
+
+                        <div class="form-group">
+                            <label for="event-type" class="form-group__label">Tipo de Evento</label>
+                            <select id="event-type" name="event-type" class="form-group__select">
                                 <option value="">Selecione o tipo de evento</option>
                                 <option value="casamento">Casamento</option>
                                 <option value="aniversario">Aniversário</option>
@@ -732,13 +566,13 @@
                                 <option value="outros">Outros</option>
                             </select>
                         </div>
-                        
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Mensagem</label>
-                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300" placeholder="Conte-nos mais sobre seu evento..."></textarea>
+
+                        <div class="form-group">
+                            <label for="message" class="form-group__label">Mensagem</label>
+                            <textarea id="message" name="message" rows="4" class="form-group__textarea" placeholder="Conte-nos mais sobre seu evento..."></textarea>
                         </div>
-                        
-                        <button type="submit" class="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold text-lg hover:from-pink-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg">
+
+                        <button type="submit" class="form-submit">
                             Enviar Mensagem
                         </button>
                     </form>
@@ -747,51 +581,62 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="text-2xl font-playfair font-bold mb-4">Mahalo Fest</h3>
-                    <p class="text-gray-300 leading-relaxed">Transformando momentos especiais em memórias inesquecíveis há mais de 10 anos.</p>
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer__container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <h3>Mahalo Fest</h3>
+                    <p>Transformando momentos especiais em memórias inesquecíveis há mais de 10 anos.</p>
                 </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Links Rápidos</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-300 hover:text-white transition-colors duration-300">Início</a></li>
-                        <li><a href="#services" class="text-gray-300 hover:text-white transition-colors duration-300">Serviços</a></li>
-                        <li><a href="#gallery" class="text-gray-300 hover:text-white transition-colors duration-300">Galeria</a></li>
-                        <li><a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300">Contato</a></li>
+
+                <div class="footer__links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#services">Serviços</a></li>
+                        <li><a href="#gallery">Galeria</a></li>
+                        <li><a href="#contact">Contato</a></li>
                     </ul>
                 </div>
-                
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Redes Sociais</h4>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300">
-                            <i class="fab fa-facebook-f"></i>
+
+                <div class="footer__social">
+                    <h4>Redes Sociais</h4>
+                    <div class="footer__social-icons">
+                        <a href="#" class="footer__social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300">
-                            <i class="fab fa-instagram"></i>
+                        <a href="#" class="footer__social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300">
-                            <i class="fab fa-whatsapp"></i>
+                        <a href="#" class="footer__social-link" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
             </div>
-            
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
-                <p class="text-gray-300">&copy; 2025 Mahalo Fest. Todos os direitos reservados.</p>
+
+            <div class="footer__bottom">
+                <p>&copy; 2026 Mahalo Fest. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
-
-    <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
-    <!-- Custom JavaScript -->
-    <script src="script.js"></script>
+
+    <!-- Custom JavaScript - Arquitetura Modular -->
+    <!-- Globais (carregados em ordem de dependência) -->
+    <script src="assets/js/global/utils.js"></script>
+    <script src="assets/js/global/navigation.js"></script>
+    <script src="assets/js/global/animations.js"></script>
+
+    <!-- Partials da página -->
+    <script src="assets/js/pages/partials/scroll-effects.js"></script>
+    <script src="assets/js/pages/partials/hero-animations.js"></script>
+    <script src="assets/js/pages/partials/form-validation.js"></script>
+
+    <!-- Entry point -->
+    <script src="assets/js/index.js"></script>
 </body>
 </html>
