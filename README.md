@@ -1,4 +1,6 @@
+
 # Mahalo Fest
+<img src="./assets/img/landing-page.png" alt="Mahalo Fest" width="100%">
 
 Landing page de um salão de festas premium, construída com HTML, CSS e JavaScript modulares.
 
